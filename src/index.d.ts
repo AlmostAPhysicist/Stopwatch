@@ -1,0 +1,1 @@
+export function initStopwatch(root: HTMLElement): void;
