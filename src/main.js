@@ -22,9 +22,9 @@ export function initStopwatch(root) {
     page_header.textContent = "Hello World!" // set the text content of the "h1" element to "Hello World!". <h1>Hello World!</h1>
 
     // Add it to the page:
-    document.body.append(page_header) // append the "h1" element as a child of the "body" element in the DOM, which will make it visible on the page. On append vs appendChild: https://dev.to/ibn_abubakre/append-vs-appendchild-a4m
+    root.append(page_header) // append the "h1" element as a child of the "body" element in the DOM, which will make it visible on the page. On append vs appendChild: https://dev.to/ibn_abubakre/append-vs-appendchild-a4m
 
-    console.log(document.body)
+    console.log(root)
 
     // The browser roughly did:
     // 1. Create h1 node object
@@ -37,7 +37,7 @@ export function initStopwatch(root) {
 
     const start_button = document.createElement("button") // create a new HTML element of type "button" and assign it to the variable "start_button".
     start_button.textContent = "Start" // set the text content of the button to "Start".
-    document.body.append(start_button) // append the button to the body of the document, making it visible on the page.
+    root.append(start_button) // append the button to the body of the document, making it visible on the page.
 
     //--- Now let's start fresh and compartmentalize everything in a nicer tree structure---
 
@@ -49,7 +49,7 @@ export function initStopwatch(root) {
 
     // start by creating a generic grouping element, a div, which is just a node used for structural purposes. We can call it "app" or "root" or whatever we want. This will be the parent node for all our content.
     const app = document.createElement("div")
-    document.body.append(app)
+    root.append(app)
     app.append(page_header) // instead of appending directly to document, append to app
     app.append(start_button)
     // body
@@ -73,7 +73,7 @@ export function initStopwatch(root) {
 
     // If you do:
 
-    // document.body.append(page_header);
+    // root.append(page_header);
     // app.append(page_header);
 
     // the header does NOT get copied.
@@ -209,7 +209,7 @@ export function initStopwatch(root) {
     right.append(lap_times_timelog)
 
     theme_toggle.addEventListener("change", function () {
-        document.body.classList.toggle("theme-light", theme_toggle.checked)
+        root.classList.toggle("theme-light", theme_toggle.checked)
     })
 
     function setStartStopButtonState(isRunning) {

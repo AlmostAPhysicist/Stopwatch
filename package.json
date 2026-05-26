@@ -1,8 +1,15 @@
 {
-  "name": "vanilla-js",
+  "name": "stopwatch",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./src/main.js",
+    "./styles.css": "./src/styles.css"
+  },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
