@@ -209,7 +209,7 @@ export function initStopwatch(root) {
     right.append(lap_times_timelog)
 
     theme_toggle.addEventListener("change", function () {
-        root.classList.toggle("theme-light", theme_toggle.checked)
+        document.body.classList.toggle("theme-light", theme_toggle.checked)
     })
 
     function setStartStopButtonState(isRunning) {
