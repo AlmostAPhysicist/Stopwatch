@@ -146,6 +146,15 @@ export function initStopwatch(root) {
     theme_toggle_wrap.append(theme_toggle)
     app.append(theme_toggle_wrap)
 
+    const systemThemeQuery = window.matchMedia("(prefers-color-scheme: light)")
+
+    function applySystemTheme() {
+        theme_toggle.checked = systemThemeQuery.matches
+        document.body.classList.toggle("theme-light", theme_toggle.checked)
+    }
+
+    applySystemTheme()
+
     // layout container: main-area will fill remainder of viewport under header
     const mainArea = document.createElement("div")
     mainArea.className = "main-area"
@@ -211,6 +220,8 @@ export function initStopwatch(root) {
     theme_toggle.addEventListener("change", function () {
         document.body.classList.toggle("theme-light", theme_toggle.checked)
     })
+
+    systemThemeQuery.addEventListener("change", applySystemTheme)
 
     function setStartStopButtonState(isRunning) {
         start_stop_button.querySelector(".button_top").textContent = isRunning ? "Stop" : "Start"

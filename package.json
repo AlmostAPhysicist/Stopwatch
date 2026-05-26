@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/main.js",
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/main.js"
+    },
     "./styles.css": "./src/styles.css"
   },
-  "types": "./src/index.d.ts",
   "files": [
     "src"
   ],
